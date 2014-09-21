@@ -1,0 +1,31 @@
+\begin{problem}[习题4.2]
+试求初值问题
+\[
+(x-1)(x-2)y''+(4x-6)y'+2y=0,\:\:
+y(0)=2,\:\: y'(0)=1
+\]
+的Taylor展开, 并估计其收敛范围.
+\end{problem}
+
+\begin{solution}
+点$x=0$为原方程的正常点, 则方程解可展开成如下形式的Taylor级数
+\[
+y(x)=\sum_{n=0}^{\infty}a_{n}x^{n}
+\]
+代入原方程
+\[
+(x^{2}-3x+2)\sum_{n=2}^{\infty}n(n-1)a_{n}x^{n-2}+(4x-6)\sum_{n=1}^{\infty}na_{n}x^{n-1}+2\sum_{n=0}^{\infty}a_{n}x^{n}=0
+\]
+由各项系数为零得
+\[
+2a_{n+2}-3a_{n+1}+a_{n}=0\;\Longrightarrow\; a_{n+2}-a_{n+1}=\frac{1}{2}(a_{n+1}-a_{n})=\frac{1}{2^{n}}(a_{1}-a_{0})
+\]
+由$y(0)=2$及$y'(0)=1$得$a_{0}=2$, $a_{1}=1$, 代入上式得
+\[
+a_{n+2}-a_{n+1}=-\frac{1}{2^{n}}\;\Longrightarrow\; a_{n}=\frac{1}{2^{n-1}}
+\]
+因此解为
+\[
+y(x)=2\sum_{n=0}^{\infty}(x/2)^{n}
+\]
+\end{solution}

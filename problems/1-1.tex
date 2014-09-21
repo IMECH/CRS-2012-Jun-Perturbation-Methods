@@ -1,0 +1,53 @@
+\begin{problem}[习题1.1]
+试用初等函数(如幂函数, 指数函数, 对数函数)求下述表达式当$\varepsilon\rightarrow 0$时的量阶.
+\[
+\begin{array}{lll}
+    \displaystyle (1)~~\frac{1-\cos\varepsilon}{1+\cos\varepsilon} &\hspace{5em}&   \displaystyle (2)~~\frac{\varepsilon^{1/2}}{1-\cos\varepsilon} \\
+    \noalign{\vskip5pt}
+    \displaystyle  (3)~~\ln\Big[1+\frac{\ln(1+2\varepsilon)}{1-2\varepsilon}\Big] &\hspace{5em}&  \displaystyle (4)~~ \ln\Big[1+\frac{\ln\big((1+2\varepsilon)/\varepsilon\big)}{1-2\varepsilon}\Big]\\
+    \noalign{\vskip5pt}
+    \displaystyle (5)~~e^{-\cosh(1/\varepsilon)} &\hspace{5em}&  \displaystyle (6)~~\int_0^\varepsilon e^{-s^2} ds
+\end{array}
+\]
+\end{problem}
+
+\begin{solution}
+
+\begin{enumerate}
+\item $\displaystyle \frac{1-\cos\varepsilon}{1+\cos\varepsilon}
+= \frac{1-[1-\varepsilon^2/2+o(x^3)]}{1+[1-\varepsilon^2/2+o(x^3)]}
+=\frac{\varepsilon^2/2+o(x^3)}{2-\varepsilon^2/2+o(x^3)}
+= \frac{\varepsilon^2}{4}+o(\varepsilon^3) = O(\varepsilon^2)
+$
+
+\item $\displaystyle \frac{\varepsilon^{1/2}}{1-\cos\varepsilon}
+= \frac{\varepsilon^{1/2}}{1-[1-\varepsilon^2/2+o(x^3)]}
+=\frac{\varepsilon^{1/2}}{\varepsilon^2/2+o(x^3)}
+=O(\varepsilon^{-3/2})
+$
+
+\item $
+\displaystyle\ln\Big[1+\frac{\ln(1+2\varepsilon)}{1-2\varepsilon}\Big]
+= \frac{\ln(1+2\varepsilon)}{1-2\varepsilon} + o\Big(\frac{\ln(1+2\varepsilon)}{1-2\varepsilon}\Big)
+=\frac{2\varepsilon + o(\varepsilon^2)}{1-2\varepsilon} = O(\varepsilon)
+$
+
+\item $\displaystyle
+\ln\Big[1+\frac{\ln\big((1+2\varepsilon)/\varepsilon\big)}{1-2\varepsilon}\Big]
+=\ln\Big[1+\frac{\ln\big(1/\varepsilon+2\big)}{1-2\varepsilon}\Big]
+=\ln[1+O(\ln\varepsilon^{-1})] = O(\ln\ln\varepsilon^{-1})
+$
+
+\item $\displaystyle
+e^{-\cosh(1/\varepsilon)}
+=\exp(-\frac{e^{1/\varepsilon}+e^{-1/\varepsilon}}{2})
+= \exp(-\frac{e^{1/|\varepsilon|}+e^{-1/|\varepsilon|}}{2})
+= O\Big(\exp\big(-\frac{e^{1/|\varepsilon|}}{2}\big)\Big)
+$
+
+\item $\displaystyle
+\frac{\int_0^\varepsilon e^{-s^2} ds}{\varepsilon} = \frac{e^{-\varepsilon^2}}{1} = 1
+\Longrightarrow \int_0^\varepsilon e^{-s^2} ds = O(\varepsilon)
+$
+\end{enumerate}
+\end{solution} 

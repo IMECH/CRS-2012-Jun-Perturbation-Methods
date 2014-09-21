@@ -1,0 +1,36 @@
+\begin{problem}[习题3.2]
+有二种液体, 轻液体置于重液体之上, 由外界扰动可以产生界面波, 在无界, 有界情况下, 请导出色散关系, 并计算其相速度与群速度.
+\end{problem}
+
+\begin{solution}
+由3.1可知, 两种液体的速度势形式分别如下
+\[
+\varphi_{1}=C_{1}\cosh\big(k(z-h_{1})\big)\cos(kx-\omega t)
+\]
+\[
+\varphi_{2}=C_{2}\cosh\big(k(z+h_{2})\big)\cos(kx-\omega t)
+\]
+将以上两式代入以下动力学, 动力学边界条件
+\begin{align*}
+\frac{\partial\varphi_{1}}{\partial z}=\frac{\partial\varphi_{2}}{\partial z} & =\frac{\partial\zeta}{\partial t}\hphantom{\rho_{1}\frac{\partial\varphi_{1}}{\partial t}+\rho_{1}g\zeta+p=0}\quad z=0\\
+\rho_{1}\frac{\partial\varphi_{1}}{\partial t}+\rho_{1}g\zeta+p & =\rho_{1}\frac{\partial\varphi_{1}}{\partial t}+\rho_{1}g\zeta+p=0\hphantom{\frac{\partial\zeta}{\partial t}}\quad z=0
+\end{align*}
+可得
+\[
+\omega^{2}=\frac{(\rho_{2}-\rho_{1})kg}{\rho_{1}/\tanh(kh_{1})+\rho_{2}/\tanh(kh_{2})}
+\]
+因此有
+\begin{itemize}
+\item 在无界时$h_{1}\rightarrow\infty$, $h_{2}\rightarrow\infty$, 则$\omega^{2}$,
+相速度$c=\omega/k$及群速度$c_{g}=\partial\omega/\partial k$分别为
+\[
+\omega^{2}=\frac{(\rho_{2}-\rho_{1})kg}{\rho_{1}+\rho_{2}},\: c=\sqrt{\frac{(\rho_{2}-\rho_{1})g}{k(\rho_{1}+\rho_{2})}},\: c_{g}=\frac{g(\rho_{2}-\rho_{1})}{2\sqrt{gk(\rho_{2}^{2}-\rho_{1}^{2})}}
+\]
+
+\item 有界时, 则$\omega^{2}$, 相速度$c=\omega/k$及群速度$c_{g}=\partial\omega/\partial k$分别为
+\[
+\omega^{2}=(\rho_{2}-\rho_{1})kg/\Omega,\: c=\sqrt{(\rho_{2}-\rho_{1})g/(k\Omega)},\: c_{g}=\frac{g(\rho_{2}-\rho_{1})\Omega-gk(\rho_{2}-\rho_{1})\Theta}{2\Omega\sqrt{gk(\rho_{2}-\rho_{1})\Omega}}
+\]
+基中$\Omega=\rho_{1}/\tanh(kh_{1})+\rho_{2}/\tanh(kh_{2})$, $\Theta=\mathrm{h_{1}}\rho_{1}[1-\tanh^{-2}(\mathrm{h_{1}}k)]+\mathrm{h_{2}}\rho_{2}[1-\tanh^{-2}(\mathrm{h_{2}}k)]$
+\end{itemize}
+\end{solution}

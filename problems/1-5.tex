@@ -1,0 +1,29 @@
+\begin{problem}[习题1.5]
+用渐近级数的定义, 证明两个渐近幂级数乘除运算之定理.
+\end{problem}
+
+\begin{solution}
+设函数$f(x)$,$g(x)$在$x\rightarrow0$时可展开成渐近幂级数
+\[
+f(x)\sim\sum_{n=0}^{\infty}\frac{f_{n}}{x^{n}},\qquad x\rightarrow0
+\]
+\[
+g(x)\sim\sum_{n=0}^{\infty}\frac{g_{n}}{x^{n}},\qquad x\rightarrow0
+\]
+下面分别证明两个渐近幂级数乘除运算之定理.
+\begin{itemize}
+\item\textbf{乘运算:} 则两个渐近幂级数乘积为
+\begin{align*}
+f(x)g(x) & \sim\bigg(\sum_{n=0}^{\infty}\frac{f_{n}}{x^{n}}\bigg)\bigg(\sum_{n=0}^{\infty}\frac{g_{n}}{x^{n}}\bigg)=\sum_{j=0}^{\infty}\bigg(\frac{f_{j}}{x^{j}}\sum_{i=0}^{\infty}\frac{g_{i}}{x^{i}}\bigg)=\sum_{j=0}^{\infty}\bigg(\sum_{i=0}^{\infty}\frac{g_{i}f_{j}}{x^{i+j}}\bigg)\\
+ & =\sum_{j=0}^{\infty}\bigg(\sum_{n=j}^{\infty}\frac{g_{n-j}f_{j}}{x^{n}}\bigg)=\sum_{n=0}^{\infty}\frac{1}{x^{n}}\Big(\sum_{j=0}^{n}g_{n-j}f_{j}\Big)=\sum_{n=0}^{\infty}\frac{c_{n}}{x^{n}}
+\end{align*}
+其中$c_{n}=\sum_{j=0}^{n}g_{n-j}f_{j}$.
+\item\textbf{除运算:} 设$f(x)/g(x)\sim\sum_{n=0}^{\infty}d_{n}/x^{n}$, 则由上面已证的乘法运算可知
+\[
+f(x)\sim\bigg(\sum_{n=0}^{\infty}\frac{g_{n}}{x^{n}}\bigg)\sum_{n=0}^{\infty}\frac{d_{n}}{x^{n}}=\sum_{n=0}^{\infty}\frac{f_{n}}{x^{n}}
+\]
+其中$f_{n}=\sum_{j=0}^{n}d_{j}g_{n-j}$
+\end{itemize}
+ 
+
+\end{solution}

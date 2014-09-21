@@ -1,0 +1,40 @@
+\begin{problem}[习题4.5]
+在原点附近求下述方程
+\[
+x^4y''+2x^3y'-y=0
+\]
+的渐近解.
+\end{problem}
+
+\begin{solution}
+将上式转化为
+\begin{equation}
+y''+2x^{-1}y'-x^{-4}y=0\label{eq:4.501}
+\end{equation}
+该方程在$x=0$有非正则奇点. 由主项平均法设
+\[
+y\sim e^{s(x)},\qquad s(x)\sim x^{-b}\,(b\geq0)
+\]
+代入式\ref{eq:4.501}得
+\[
+\underset{O(x^{-b-2})}{s''(x)}+\underset{O(x^{-2b-2})}{s'^{2}(x)}+\underset{O(x^{-b-2})}{p(x)s'(x)}+\underset{O(x^{-4})}{q(x)}=0
+\]
+下面分情况讨论
+\begin{itemize}
+\item 若$0\leq b<1$, 则第四项为主项, 矛盾.
+\item 若$b=1$, 则二四项平衡, 此时$s'(x)=\pm\sqrt{p(x)}=\pm x^{-2}$,因此可得
+\[
+s(x)=\pm1/x\;\Longrightarrow\; y_{1,2}=\mathrm{e}^{\pm1/x}
+\]
+
+\item 若$b>1$, 此时第二项为主项, 此时$s'(x)=0$,因此可得
+\[
+s(x)=\mathrm{const}\nLeftrightarrow\; s(x)\sim x^{-b}\,(b\geq0)
+\]
+
+\end{itemize}
+综上所述, 只有在$b=1$情况存在渐近解
+\[
+y_{1,2}=\mathrm{e}^{\pm1/x}
+\]
+\end{solution}

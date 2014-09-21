@@ -1,0 +1,124 @@
+\begin{problem}[习题7.26]
+试求边值问题
+\[
+\varepsilon y''+y'=2x, ~~y(0)=\alpha, ~~y(1)=\beta
+\]
+的一致有效展开式.
+\end{problem}
+
+\begin{solution}
+%由习题(7.19)及$y'$前的系数1大于0可知, 该问题的边界层在$x=0$处. 先求外解, 由原方程得
+%\[
+%{y'}_{0}^{(o)}=2x,y_{0}^{(o)}(1)=\beta
+%\]
+%由上式及边界条件可求得外解为
+%\[
+%y_{0}^{(o)}=x^{2}+\beta-1
+%\]
+%设内变量为$\xi=x/\varepsilon^{\lambda}$, 代入原方程式
+%\[
+%\varepsilon^{1-2\lambda}\frac{d^{2}y^{(i)}}{d\xi^{2}}+\varepsilon^{-\lambda}\frac{dy^{(i)}}{d\xi}=2\xi\varepsilon^{\lambda}
+%\]
+%即
+%\[
+%\frac{d^{2}y^{(i)}}{d\xi^{2}}+\varepsilon^{\lambda-1}\frac{dy^{(i)}}{d\xi}=2\xi\varepsilon^{3\lambda-1}
+%\]
+%由于外解忽略了第一项, 所以在边界层中应该包含第一项, 因此$\lambda=1$, 此时上式化为
+%\[
+%\frac{d^{2}y^{(i)}}{d\xi^{2}}+\frac{dy^{(i)}}{d\xi}=0\Rightarrow y^{(i)}=C_{0}e^{-\xi}+C_{1}
+%\]
+%由边界条件$y^{(i)}(0)=\alpha$可得$C_{0}+C_{1}=\alpha$, 因此有$y^{(i)}=C_{0}e^{-\xi}+(\alpha-C_{0})$.
+%
+%\vspace{1em}
+%
+%\noindent 对内外解应用Prandtl匹配原理($\lim_{x\rightarrow0}y^{(o)}=\lim_{\xi\rightarrow\infty}y^{(i)}$)得
+%\[
+%\beta-1=\alpha-C_{0}\Rightarrow C_{0}=\alpha-\beta+1
+%\]
+%因此外解为
+%\[
+%y^{(i)}=(\alpha-\beta)e^{\xi}+(\beta-1)
+%\]
+%综上所述, 最终解为
+%\[
+%y=y^{(0)}+y^{(i)}-[y^{(o)}]^{(i)}=x^{2}+\beta-1+(\alpha-\beta)e^{\xi}
+%\]
+
+由习题(7.19)及$y'$前的系数1大于0可知, 该问题的边界层在$x=0$处. 先求外解, 设外解形式为$y^{(o)}=y_{0}^{(o)}+\delta_{1}(\varepsilon)y_{1}^{(o)}+\cdots$,
+且$\delta_{1}(\varepsilon\rightarrow0)\rightarrow0$. 对于本题取$\delta_{1}(\varepsilon)=\varepsilon$.
+由原方程得
+\[
+{y'}_{0}^{(o)}=2x,~~y_{0}^{(o)}(1)=\beta
+\]
+\[
+{y''}_{0}^{(o)}+{y'}_{1}^{(o)}=0
+\]
+由上式及边界条件可求得外解为
+\[
+y_{0}^{(o)}=x^{2}+\beta-1,y_{1}^{(o)}=-2x+C_{1}^{(o)}
+~\rightarrow~
+y^{(0)}=x^{2}+\beta-1+\varepsilon\big(-2x+C_{1}^{(o)}\big)
+\]
+设内变量为$\xi=x/\varepsilon^{\lambda}$, 代入原方程式
+\[
+\varepsilon^{1-2\lambda}\frac{d^{2}y^{(i)}}{d\xi^{2}}+\varepsilon^{-\lambda}\frac{dy^{(i)}}{d\xi}=2\xi\varepsilon^{\lambda}
+~\Rightarrow~
+\frac{d^{2}y^{(i)}}{d\xi^{2}}+\varepsilon^{\lambda-1}\frac{dy^{(i)}}{d\xi}=2\xi\varepsilon^{3\lambda-1}
+\]
+由于外解忽略了第一项, 所以在边界层中应该包含第一项, 因此$\lambda=1$, 此时上式化为
+\begin{equation}
+\frac{d^{2}y^{(i)}}{d\xi^{2}}+\frac{dy^{(i)}}{d\xi}=2\xi\varepsilon^{2}\label{eq:72601}
+\end{equation}
+显然内展开的形式应为
+\[
+y^{(i)}=y_{0}^{(i)}(\xi)+\varepsilon^{2}y_{1}^{(i)}(\xi)+\cdots
+\]
+代入式(\ref{eq:72601}), 令$\text{\ensuremath{\varepsilon}}$的同次幂的系数相等有
+\[
+\frac{d^{2}y_{0}^{(i)}}{d\xi^{2}}+\frac{dy_{0}^{(i)}}{d\xi}=0, ~~ \frac{d^{2}y_{1}^{(i)}}{d\xi^{2}}+\frac{dy_{1}^{(i)}}{d\xi}=2\xi
+\]
+由$x=0$处的边界条件$y_{0}^{(i)}(0)=\alpha$, $y_{1}^{(i)}(0)=0$可得零阶和一阶内解为
+\[
+y_{0}^{(i)}=C_{0}^{(i)}e^{-\xi}+(\alpha-C_{0}^{(i)}), ~~ y_{1}^{(i)}=C_{1}^{(i)}e^{-\xi}-C_{1}^{(i)}+\xi^{2}-2\xi
+\]
+现在按 Van Dyke 匹配原理进行匹配($m=n=3$).
+\begin{itemize}
+\item 两项外展开式: \ \  $x^{2}+\beta-1+\varepsilon(-2x+C_{1}^{(o)})$,
+\\改写为内变量: \ \  $\varepsilon^{2}\xi^{2} + \beta-1 + \varepsilon (-2\varepsilon\xi+C_{1}^{(o)})$ ,\\
+取三项内展开: \ \  $(\beta-1) + \varepsilon C_{1}^{(o)} + \varepsilon^{2}(\xi^{2}-2\xi)$, \\
+改写为外变量: \ \  $x^{2}+\beta-1-2\varepsilon x+\varepsilon C_{1}^{(o)}$.
+\item 两项内展开式: \ \  $C_{0}^{(i)}e^{-\xi} + (\alpha-C_{0}^{(i)}) + \varepsilon^{2}\big(C_{1}^{(i)}e^{-\xi} - C_{1}^{(i)} + \xi^{2} - 2\xi\big)$,\\
+改写为外变量: \ \  $C_{0}^{(i)}e^{-x/\varepsilon} + (\alpha-C_{0}^{(i)}) + \varepsilon^{2}C_{1}^{(i)}e^{-x/\varepsilon} - \varepsilon^{2}C_{1}^{(i)} + x^{2} - 2x\varepsilon$,\\
+取三项外展开: \ \  $(\alpha - C_{0}^{(i)}) + x^{2} - 2x\varepsilon - \varepsilon^{2}C_{1}^{(i)}$.
+\end{itemize}
+应用 Van Dyke 匹配原理可得
+\[
+\beta-1=\alpha-C_{0}^{(i)},C_{1}^{(o)}=C_{1}^{(i)}=0
+\]
+因此外内解为
+\[
+y^{(o)}=x^{2}+\beta-1-2x\varepsilon
+\]
+\[
+y^{(i)}=(\alpha-\beta+1)e^{-\xi}+(\beta-1)+\varepsilon^{2}\big(\xi^{2}-2\xi\big)
+\]
+综上所述, 最终解为
+\[
+y=y^{(0)}+y^{(i)}-[y^{(i)}]^{(o)}=x^{2}-2x\varepsilon+(\alpha-\beta+1)e^{-x/\varepsilon}+(\beta-1)
+\]
+
+%对内外解应用Prandtl
+%
+%匹配原理($\lim_{x\rightarrow0}y^{(o)}=\lim_{\xi\rightarrow\infty}y^{(i)}$)得
+%\[
+%\beta-1=\alpha-C_{0}\Rightarrow C_{0}=\alpha-\beta+1
+%\]
+%因此外解为
+%\[
+%y^{(i)}=(\alpha-\beta)e^{\xi}+(\beta-1)
+%\]
+%综上所述, 最终解为
+%\[
+%y=y^{(0)}+y^{(i)}-[y^{(o)}]^{(i)}=x^{2}+\beta-1+(\alpha-\beta)e^{\xi}
+%\]
+\end{solution} 

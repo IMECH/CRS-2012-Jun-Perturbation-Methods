@@ -1,0 +1,55 @@
+\begin{problem}[习题7.23]
+试求方程
+\[
+\varepsilon y'' + xy' - xy = 0,~~
+y(-1)=\alpha, ~~ y(1) = \beta
+\]
+一阶的一致有效展开式.
+\end{problem}
+
+\begin{solution}
+首先判断边界层位置: 当$x>0$, 边界层在$x=0$. 当$x<0$, 令$x'=-x$, 则原方程可变换为y关于$x'$的方程
+\[
+\varepsilon y(x')'' - x'y(x')' + x'y(x') = 0,~~
+y(x'=1)=\alpha, ~~ y(x'=-1) = \beta
+\]
+则可知边界层在$x'=0$即$x=0$处. 由以上分析可知边界层在$x=0$处, 两边是外解区域. 先求外解, 由原方程可知
+\[
+y'^{(o)}-y^{(o)}=0\Rightarrow y^{(o)}=C_{0}e^{x}
+\]
+外解左区域有边界条件$y_{l}^{(o)}(-1)=\alpha$,得$y_{l}^{(o)}=\alpha e^{x+1}$.
+外解右区域边界条件$y_{r}^{(o)}(1)=\beta$, 得$y_{r}^{(o)}=\beta e^{x-1}$. 因此外解为
+\[
+y^{(o)}=\begin{cases}
+\alpha e^{x+1} & -1<x<0\\
+\beta e^{x-1} & +0<x<1
+\end{cases}
+\]
+设内变量为$\xi=x/\varepsilon^{\lambda}$, 代入原方程式
+\[
+\varepsilon^{1-2\lambda}\frac{d^{2}y}{d\xi^{2}}+\xi\frac{dy}{d\xi}-\varepsilon^{\lambda}\xi y=0\Rightarrow\frac{d^{2}y}{d\xi^{2}}+\varepsilon^{2\lambda-1}\xi\frac{dy}{d\xi}-\varepsilon^{3\lambda-1}\xi y=0
+\]
+由于外解忽略了第一项, 所以在边界层中应该包含第一项, 因此有$\lambda=1/2$, 此时上式转化为
+\[
+\frac{d^{2}y^{(i)}}{d\xi^{2}}+\xi\frac{dy^{(i)}}{d\xi}=0\Rightarrow y^{(i)}=C_{1}\int_{0}^{\xi}\exp(-\zeta^{2}/2)d\zeta+C_{2}
+\]
+将上式与外解的左右区域分别匹配
+\[
+\lim_{x\rightarrow0^{-}}y_{l}^{(0)}=\lim_{\xi\rightarrow-\infty}y_{l}^{(i)}\Rightarrow\alpha e^{+1}=-\sqrt{\pi/2}C_{1}+C_{2}
+\]
+\[
+\lim_{x\rightarrow0^{+}}y_{r}^{(0)}=\lim_{\xi\rightarrow+\infty}y_{l}^{(i)}\Rightarrow\beta e^{-1}=+\sqrt{\pi/2}C_{1}+C_{2}
+\]
+由以上两式可解得$C_{1}=\frac{\beta/e-\alpha e}{\sqrt{2\pi}}$, $C_{2}=\frac{\alpha e+\beta/e}{2}$,
+因此内解为
+\[
+y^{(i)}=\frac{1}{\sqrt{2\pi}}(\beta/e-\alpha e)\int_{0}^{\xi}\exp(-\zeta^{2}/2)d\zeta+\frac{1}{2}(\alpha e+\beta/e)
+\]
+综上所述
+\[
+y_{l}=y_{l}^{(i)}+y_{l}^{(o)}-[y_{l}^{(o)}]^{(i)}=\frac{\beta/e-\alpha e}{\sqrt{2\pi}}\int_{0}^{x/\sqrt{\varepsilon}}e^{-\zeta^{2}/2}d\zeta+\frac{1}{2}(\alpha e+\beta/e)+\alpha e^{x+1}-\alpha e
+\]
+\[
+y_{r}=y_{r}^{(i)}+y_{r}^{(o)}-[y_{r}^{(o)}]^{(i)}=\frac{\beta/e-\alpha e}{\sqrt{2\pi}}\int_{0}^{x/\sqrt{\varepsilon}}e^{-\zeta^{2}/2}d\zeta+\frac{1}{2}(\alpha e+\beta/e)+\beta e^{x-1}-\beta/e
+\]
+\end{solution}

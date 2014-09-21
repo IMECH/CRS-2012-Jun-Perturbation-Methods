@@ -1,0 +1,95 @@
+\begin{problem}[习题7.3]
+利用多重尺度法和平均化方法求
+\[
+\ddot{u}+2\varepsilon\mu\dot{u} + u +\varepsilon u^3 = 0
+\]
+的解$u$的一阶的一致有效展开式.
+\end{problem}
+
+\begin{solution}
+\begin{itemize}
+\item \textbf{多重尺度法}
+
+应用两变量方法, 设
+\[
+u=u_0(\xi, \eta)+\varepsilon u_1(\xi, \eta)+\varepsilon^2 u_2(\xi, \eta) + \cdots
+\]
+其中$\xi = \varepsilon t$, $\eta = (1+\varepsilon^2\omega_2 +\varepsilon^3\omega_3+\cdots + \varepsilon^M\omega_M)t$. 将上式代入原方程可得递推方程如下:
+\begin{eqnarray}
+\frac{\partial^2u_0}{\partial\eta^2} + u_0 &=& 0\label{u0}\\
+\frac{\partial^2u_1}{\partial\eta^2} + u_1 &=& -2\frac{\partial^2u_0}{\partial\xi\partial\eta} - 2\mu\frac{\partial u_0}{\partial\eta} - u_0^3\label{u1}\\
+\frac{\partial^2u_2}{\partial\eta^2} + u_1 &=& -\frac{\partial^2u_0}{\partial\xi^2} - 2\omega_2\frac{\partial^2u_0}{\partial\eta^2} -2\frac{\partial^2u_1}{\partial\xi\partial\eta}
+-2\mu
+\Big(
+\frac{\partial u_0}{\partial\xi}+\frac{\partial u_1}{\partial\eta}
+\Big)
+ - 3u_0^2u_1\label{u2}
+\end{eqnarray}
+方程(\ref{u0})的通解为
+\[
+u_0 = A_0(\xi)\cos\eta + B_0(\xi)\sin\eta
+\]
+将上式代入(\ref{u1})式得
+\begin{eqnarray}
+\frac{\partial^2u_1}{\partial\eta^2} + u_1 &=& (+2A_0'+2\mu A_0 - \frac{3}{4}B^3-\frac{3}{4}A_0^2B_0)\sin\xi +(+\frac{1}{4}B_0^3-\frac{3}{4}A_0^2B_0)\sin3\xi\nonumber\\
+&+& (-2B_0' - 2\mu B_0 -\frac{3}{4}A_0^3-\frac{3}{4}A_0B_0^2)\cos\xi
+ + (-\frac{1}{4}A_0^3+\frac{3}{4}A_0B_0^2)\cos3\xi\nonumber
+\end{eqnarray}
+为消去常期项, 需令
+\begin{eqnarray}
++2A_0'+2\mu A_0 - \frac{3}{4}B^3-\frac{3}{4}A_0^2B_0 &=& 0\label{long01}\\
+-2B_0' - 2\mu B_0 -\frac{3}{4}A_0^3-\frac{3}{4}A_0B_0^2 &=& 0\label{long02}
+\end{eqnarray}
+式(\ref{long01})$\times A_0$ - 式(\ref{long02})$\times B_0$ 得
+\[
+(A_0^2 + B_0^2)' + 2\mu(A_0^2 + B_0^2) = 0
+\]
+令$a=\sqrt{A_0^2 + B_0^2}$为所需阶解的振幅
+\[
+a = a_0\exp(-\mu\xi)
+\]
+若用振幅$a$和相位$\phi$表示$A_0$, $B_0$有
+\[
+A_0 = a\cos\phi,~ B_0 = -a\sin\phi
+\]
+代入式(\ref{long01})或(\ref{long02})得
+\[
+\frac{d\phi}{d\xi} = \frac{3}{8}a^2 =\frac{3}{8}a_0^2\exp(-2\mu\xi)  ~\Rightarrow ~ \phi = -\frac{3}{16}\frac{a_0^2}{\mu}\exp(-2\mu\xi) + \phi_0
+\]
+因此$u$的的一阶的一致有效展开式为
+\[
+u = a cos(\eta - \frac{3}{8}a^2\xi + \phi_0)
+= a_0\exp(-\mu\varepsilon t)\cos\Big(t- \frac{3}{16}\frac{a_0^2}{\mu}\exp(-2\mu\varepsilon t)+\phi_0\Big)
+\]
+
+\item \textbf{平均化方法}
+
+原方程化为
+\[
+\ddot{u}+ u = \varepsilon(-2\mu\dot{u}- u^3) = \varepsilon f(u, \dot{u})
+\]
+其退化解为
+\[
+u = \cos(t+\theta)
+\]
+平均法中$f(u, \dot{u}) = -2\mu\dot{u}- u^3$, 故有
+\[
+f(a\cos\varphi, -a\omega_0\sin\varphi) = -a^3\cos^3\varphi +2\mu a\omega_0\sin\varphi
+\]
+由平均法
+\begin{eqnarray}
+\frac{da}{dt} &=& \frac{-\varepsilon}{\omega_0}\frac{1}{2\pi}\int_0^{2\pi}\sin\varphi f(a\cos\varphi, -a\omega_0\sin\varphi) d\varphi\nonumber\\
+&=& -\mu a\varepsilon\nonumber\\
+\frac{d\theta}{dt} &=&\frac{-\varepsilon}{a\omega_0}\frac{1}{2\pi}\int_0^{2\pi}\cos\varphi f(a\cos\varphi, -a\omega_0\sin\varphi) d\varphi\nonumber\\
+&=& \frac{3}{8}a^2\varepsilon
+\end{eqnarray}
+由以上两式可求得$a$和$\theta$
+\[
+a = a_0\exp(-\mu\varepsilon t), ~~ \theta = -\frac{3}{16}\frac{a_0^2}{\mu}\exp(-2\mu\varepsilon t) + \theta_0
+\]
+综上所述
+\[
+u = a_0\exp(-\mu\varepsilon t)\cos\Big(t-\frac{3}{16}\frac{a_0^2}{\mu}\exp(-2\mu\varepsilon t) + \theta_0\Big)
+\]
+\end{itemize}
+\end{solution} 

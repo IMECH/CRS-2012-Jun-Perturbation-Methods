@@ -1,0 +1,48 @@
+\begin{problem}[习题4.4]
+在原点附近求下述方程
+\[
+x^3y''+x(1-x)y'-2y=0
+\]
+的渐近解.
+\end{problem}
+
+\begin{solution}
+将原方程式化为如下形式
+\begin{equation}
+y''+x^{-2}\bigg(1-x\bigg)y'-2x^{-3}y=0\label{eq:4.4.01}
+\end{equation}
+该方程在$x=0$有非正则奇点. 因此在$x=0$处可能存在正则解. 由主项平均法可设
+\[
+y\sim e^{s(x)},\qquad s(x)\sim x^{-b}\,(b\geq0)
+\]
+代入式(\ref{eq:4.4.01})得
+\[
+\underset{O(x^{-b-2})}{s''(x)}+\underset{O(x^{-2b-2})}{s'^{2}(x)}+\underset{O(x^{-b-3})}{p(x)s'(x)}+\underset{O(x^{-3})}{q(x)}=0
+\]
+下面分情况讨论
+\begin{itemize}
+\item 若 $b=0$, 则三,四项平衡, 此时$s'(x)=-q(x)/p(x)=\frac{2}{x(1-x)}$.因此可得
+\[
+s(x)=2\ln\frac{x}{1-x}\:\Longrightarrow\: y_{1}\approx\frac{x^{2}}{(1-x)^{2}}
+\]
+
+\item 若$0<b<1$, 则第三项为主项, 此时$s'(x)=0$. 因此可得
+\[
+s(x)=\mathrm{const}\;\nLeftrightarrow\; s(x)\sim x^{-b}\,(b\geq0)
+\]
+
+\item 若$b=1$, 则二,三项平衡, 此时$s'(x)=-p(x)=\frac{1}{x}-\frac{1}{x^{2}}$. 因此可得
+\[
+s(x)\sim\frac{1}{x}+\ln x\:\Longrightarrow\: y_{1}\approx x\mathrm{e}^{1/x}
+\]
+
+\item 若$b>1$,则第二项为主项, 此时$s'(x)=0$, 同第e二种情况.
+\end{itemize}
+综上所述, 只有在$b=0$和$b=1$两种情况存在渐近解
+\[
+y\approx\begin{cases}
+x^{2}/(1-x)^{2}, & b=0\\
+x\exp(1/x), & b=1
+\end{cases}
+\]
+\end{solution} 

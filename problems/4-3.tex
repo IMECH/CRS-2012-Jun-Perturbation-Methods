@@ -1,0 +1,23 @@
+\begin{problem}[习题4.3]
+求下述方程
+\[
+x^2y'''+3xy''+(1-x)y'-y=0
+\]
+的Frobenius级数解.
+\end{problem}
+
+\begin{solution}
+点$x=0$是方程的正点则奇点, 至少存在一个Frobenius级数解, 设解的形式为
+\[
+y(x)=x^{\alpha}\sum_{n=0}^{\infty}a_{n}x^{n}=\sum_{n=0}^{\infty}a_{n}x^{n+\alpha}
+\]
+代入原方程得
+\[
+a_{0}\alpha^{3}x^{\alpha-1}+\sum_{n=0}^{\infty}(\alpha+n+1)\Big[(\alpha+n+1)^{2}a_{n+1}-a_{n}\Big]x^{\alpha+n}=0
+\]
+因此有
+\[
+a_{0}\alpha^{3}=0,\qquad a_{n+1}=a_{n}/(\alpha+n+1)^{2}
+\]
+因为是重根, 故另外两解不再是Frobenius级数解.
+\end{solution}

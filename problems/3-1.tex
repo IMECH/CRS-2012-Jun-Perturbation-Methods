@@ -1,0 +1,50 @@
+\begin{problem}[习题3.1]
+求证有限水深二维重力波的色散关系为$\omega^2=gk\tanh k h$ 如果考虑表面张力, 导出类似的表达式, 并计算其相速度, 群速度.
+\end{problem}
+
+\begin{solution}
+设水波表面方程式为$F(x,z,t)=z-\zeta(x,t)=0$, 速度势$\varphi=\varphi^{*}(z)\mathrm{e}^{\mathrm{i}(kx-\omega t)}$,
+速度势满足Laplace方程
+\[
+\nabla^{2}\varphi=\frac{\partial^{2}\varphi}{\partial x^{2}}+\frac{\partial^{2}\varphi}{\partial z^{2}}=0\:\Longrightarrow\:\frac{d^{2}\varphi^{*}}{dz^{2}}-k^{2}\varphi^{*}(z)=0\:\Longrightarrow\:\varphi^{*}=C_{1}\mathrm{e}^{kz}+C_{2}\mathrm{e}^{-kz}
+\]
+又由边界条件
+\[
+\frac{\partial\varphi}{\partial z}\Big|_{z=-h}=0\:\Longrightarrow\:\frac{\partial\varphi^{*}(z)}{\partial z}\Big|_{z=-h}=0\:\Longrightarrow\: C_{1}\mathrm{e}^{-kh}-C_{2}\mathrm{e}^{kh}=0
+\]
+得速度势为
+\begin{align*}
+\varphi & =C_{1}\Big(\mathrm{e}^{kz}+\mathrm{e}^{-2kh}e^{-kz}\Big)\mathrm{e}^{\mathrm{i}(kx-\omega t)}=2C_{1}\mathrm{e}^{-kh}\frac{\mathrm{e}^{k(z+h)}+e^{-k(z+h)}}{2}\mathrm{e}^{\mathrm{i}(kx-\omega t)}\\
+ & =2C_{1}\cosh\big(k(z+h)\big)\cos(kx-\omega t)
+\end{align*}
+将上式及表面张力$p=-T\partial^{2}\zeta/\partial x^{2}$代入以下动力学, 动力学边界条件
+\begin{align*}
+\frac{\partial\varphi}{\partial z} & =\frac{\partial\zeta}{\partial t}\hphantom{-\frac{p}{\rho}}\quad z=0\\
+\frac{\partial\varphi}{\partial t}+g\zeta & =-\frac{p}{\rho}\hphantom{\frac{\partial\zeta}{\partial t}}\quad z=0
+\end{align*}
+得
+\[
+\omega^{2}=k(g+Tk^{2}/\rho)\tanh(kh)
+\]
+在$T=0$时有$\omega^{2}=kg\tanh(kh)$. 因此有
+\begin{itemize}
+\item 不考虑表面张力时$\omega^{2}$, 相速度$c=\omega/k$及群速度$c_{g}=\partial\omega/\partial k$分别为
+\[
+\omega^{2}=kg\tanh(kh)
+,\,
+c=\sqrt{g\tanh(kh)/k}
+,\,
+c_{g}=\frac{g\tanh\left(hk\right)-ghk\left(\tanh^{2}\left(hk\right)-1\right)}{2\sqrt{gk\tanh\left(hk\right)}}
+\]
+
+\item 考虑表面张力时$\omega^{2}$, 相速度$c=\omega/k$及群速度$c_{g}=\partial\omega/\partial k$分别为
+\[
+\omega^{2}=k(g+Tk^{2}/\rho)\tanh(kh)
+,\,
+c=\sqrt{(g+Tk^{2}/\rho)\tanh(kh)/k}
+\]
+\[
+c_{g}=\frac{\tanh\left(hk\right)\left(\rho g+Tk^{2}\right)-hk\left(g\rho+Tk\right)\left(\tanh^{2}\left(hk\right)-1\right)+2Tk^{2}\tanh\left(hk\right)}{2\sqrt{k\tanh\left(hk\right)\rho\left(g\rho+Tk^{2}\right)}}
+\]
+\end{itemize}
+\end{solution} 

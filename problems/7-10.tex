@@ -1,0 +1,50 @@
+\begin{problem}[习题7.10]
+当$\Omega=\omega_0 + \varepsilon \sigma$时, 试证明方程
+\[
+\ddot{u} + \omega_0^2 u= \varepsilon\Big(\dot{u} -\frac{1}{3}\dot{u}^3\Big)+\varepsilon k \cos\Omega t
+\]
+的解$u=a\cos(\omega_0 t +\beta)+\cdots$, 而$a$和$\beta$由下式决定
+\begin{eqnarray}
+\displaystyle \dot{a} &=& \frac{1}{2}\varepsilon \Big(1-\frac{1}{4}\omega_0^2a^2\Big)a + \frac{\varepsilon k}{2\omega_0} \sin(\varepsilon\sigma t - \beta)\nonumber\\
+\displaystyle a\dot{\beta} &=& -\frac{\varepsilon k}{2\omega_0}\cos(\varepsilon\sigma t-\beta)\nonumber
+\end{eqnarray}
+\end{problem}
+
+\begin{solution}
+由平均法, 对比弱非线性二阶方程
+\[
+f(u,\dot{u}) = \Big(\dot{u} -\frac{1}{3}\dot{u}^3\Big)+k \cos\Omega t
+\]
+令$\varphi=\omega_0 t+\beta$, 则有
+\[
+f(a\cos\varphi, -a\omega_0\sin\varphi) = (-a\omega_0\sin\varphi + \frac{1}{3}a^3\omega_0^3\sin^3\varphi) + k\cos(\varphi+\varepsilon\sigma t -\beta)
+\]
+由平均法
+\begin{eqnarray}
+\frac{da}{dt}&=&\frac{-\varepsilon}{\omega_0}\frac{1}{2\pi}
+\int_0^{2\pi}\sin\varphi f(a\cos\varphi, -a\omega_0\sin\varphi) d\varphi\nonumber\\
+&=&\frac{-\varepsilon}{\omega_0}\frac{1}{2\pi}
+\int_0^{2\pi}(-a\omega_0\sin^2\varphi + \frac{1}{3}a^3\omega_0^3\sin^4\varphi) + k\sin\varphi\cos(\varphi+\varepsilon\sigma t -\beta)d\varphi\nonumber\\
+&=&-\frac{1}{8}\varepsilon\omega_0^2a^3 + \frac{1}{2}\varepsilon a +
+\frac{k\varepsilon}{2\pi\omega}\int_0^{2\pi}
+\sin\varphi\cos\varphi\cos(\varepsilon\sigma t-\beta) - \sin^2\varphi\sin(\varepsilon\sigma t-\beta)
+d\varphi\nonumber\\
+&=&-\frac{1}{8}\varepsilon\omega_0^2a^3 + \frac{1}{2}\varepsilon a + \frac{k\varepsilon}{2\pi\omega_0}\sin(\varepsilon\sigma t-\beta)\int_0^{2\pi}\sin^2\varphi
+d\varphi\nonumber\\
+&=&-\frac{1}{8}\varepsilon\omega_0^2a^3 + \frac{1}{2}\varepsilon a +\frac{\varepsilon k}{2\omega_0}\sin(\varepsilon\sigma t-\beta)\nonumber\\
+&=& \frac{1}{2}\varepsilon \Big(1-\frac{1}{4}\omega_0^2a^2\Big)a + \frac{\varepsilon k}{2\omega_0} \sin(\varepsilon\sigma t - \beta)\nonumber
+\end{eqnarray}
+\begin{eqnarray}
+\frac{d\beta}{dt}&=&\frac{-\varepsilon}{a\omega_0}\frac{1}{2\pi}
+\int_0^{2\pi}\cos\varphi f(a\cos\varphi, -a\omega_0\sin\varphi) d\varphi\nonumber\\
+&=&\frac{-\varepsilon}{a\omega_0}\frac{1}{2\pi}
+\int_0^{2\pi}(\frac{-a\omega_0}{2}\sin2\varphi + \frac{1}{3}a^3\omega_0^3\sin^3\varphi\cos\varphi) + k\cos\varphi\cos(\varphi+\varepsilon\sigma t -\beta)d\varphi\nonumber\\
+&=& -\frac{k\varepsilon}{2a\omega_0}\cos(\varepsilon\sigma t-\beta)\nonumber
+\end{eqnarray}
+因此有
+\begin{eqnarray}
+\displaystyle \dot{a} &=& \frac{1}{2}\varepsilon \Big(1-\frac{1}{4}\omega_0^2a^2\Big)a + \frac{\varepsilon k}{2\omega_0} \sin(\varepsilon\sigma t - \beta)\nonumber\\
+\displaystyle a\dot{\beta} &=& -\frac{\varepsilon k}{2\omega_0}\cos(\varepsilon\sigma t-\beta)\nonumber
+\end{eqnarray}
+
+\end{solution} 

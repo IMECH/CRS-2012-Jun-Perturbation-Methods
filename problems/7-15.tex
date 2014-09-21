@@ -1,0 +1,53 @@
+\begin{problem}[习题7.15]
+试求下列两个问题的可解性条件:
+\begin{enumerate}
+\item $\displaystyle \varphi''+\frac{n^2\pi^2}{d^2}\varphi=f(x), ~~ \varphi'(0)=0,~~\varphi'(d)=\beta$
+\item $\displaystyle \varphi''+r_n^2\varphi=f(x), ~~\varphi'(0)=0, ~~ \varphi'(1)-\alpha\varphi(1)=\beta$, 其中 $r_n\tan r_n = -\alpha$.
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}
+\item 原方程的伴随方程为
+\[
+u'' + \frac{n^2\pi^2}{a^2}u = 0
+\]
+伴随方程的解的一般形式为
+\[
+u = A\sin\Big(\frac{n\pi}{d}x\Big) + B\cos\Big(\frac{n\pi}{d}x\Big)
+\]
+又由边界条件$u'(0) = 0$得$A=0$. 因此伴随方程的解为
+\[
+u = B\cos\Big(\frac{n\pi}{d}x\Big)
+\]
+因此方程的可解性条件为
+\[
+\delta_2p_2(d)u(d)-\delta_1p_1(0)u(0) = \int_0^df(x)u(x)dx
+\]
+即
+\[
+\beta\cos n\pi = \int_0^df(x)\cos\Big(\frac{n\pi}{d}x\Big)dx
+\]
+
+\item 原方程的伴随方程为
+\[
+u'' + r_n^2u = 0
+\]
+伴随方程的解的一般形式为
+\[
+u = A\sin(r_n x) + B\cos(r_n x)
+\]
+又由边界条件$u'(0) = 0$, $u'(1)=\alpha u(1)=-r_n\tan r_nu(1)$ 得 $A=0$. 因此伴随方程的解为
+\[
+u = B\cos(r_nx)
+\]
+因此方程的可解性条件为
+\[
+\delta_2p_2(1)u(1)-\delta_1p_1(0)u(0) = \int_0^df(x)u(x)dx
+\]
+即
+\[
+\beta\cos r_n = \int_0^1 f(x)\cos(r_nx)dx
+\]
+\end{enumerate}
+\end{solution} 

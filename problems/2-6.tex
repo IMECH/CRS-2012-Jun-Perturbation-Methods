@@ -1,0 +1,23 @@
+\begin{problem}[习题2.6]
+求积分
+\[
+I(x) = \int_0^\infty \mathrm{e}^{-\omega x^2} x^{5/2}\ln(1+x)dx
+\]
+完全的渐近展开($\omega\rightarrow +\infty$)
+\end{problem}
+
+\begin{solution}
+显然$-x^{2}$在0处取最大值, 该积分的主要贡献来自$x=0$的邻域.
+\begin{align*}
+I(x) & \sim\int_{0}^{\delta}\mathrm{e}^{-\omega x^{2}}x^{5/2}\ln(1+x)dx\sim\int_{0}^{\delta}\mathrm{e}^{-\omega x^{2}}x^{5/2}\Big(x-\frac{x^{2}}{2}+\frac{x^{3}}{3}+\cdots\Big)dx\\
+ & \sim\int_{0}^{\delta}\mathrm{e}^{-\omega x^{2}}\sum_{n=1}^{\infty}\frac{(-1)^{n+1}x^{n+5/2}}{n}dx\\
+ & \sim\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{n}\int_{0}^{\delta}\mathrm{e}^{-\omega x^{2}}x^{n+5/2}dx\\
+ & \sim\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{2n\omega^{n/2+7/4}}\int_{0}^{\delta}\mathrm{e}^{-\omega x^{2}}\omega^{n/2+3/4}x^{n+3/2}d\omega x^{2}
+\end{align*}
+ 令$\omega x^{2}=u$, 则上式化为
+\begin{align*}
+I(x) & \sim\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{2n\omega^{n/2+7/4}}\int_{0}^{\omega\delta^{2}}\mathrm{e}^{-u}u^{n/2+7/4-1}du\\
+ & \sim\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{2n\omega^{n/2+7/4}}\int_{0}^{\infty}\mathrm{e}^{-u}u^{n/2+7/4-1}du\\
+ & \sim\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{2n\omega^{n/2+7/4}}\Gamma\Big(\frac{n}{2}+\frac{7}{4}\Big)du
+\end{align*}
+\end{solution}

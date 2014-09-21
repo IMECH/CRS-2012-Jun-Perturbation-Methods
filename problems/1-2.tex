@@ -1,0 +1,39 @@
+\begin{problem}[习题1.2]
+求下列函数的量阶($\varepsilon\rightarrow 0$):
+\[
+\begin{array}{lll}
+    \displaystyle (1)~~\tanh^{-1}(1-\varepsilon)\hspace{2.5em} &\hspace{5em}&   \displaystyle (2)~~\cos^{-1}(1-\varepsilon)\hspace{5em} \\
+\end{array}
+\]
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}
+\item 设 $x = \tanh^{-1}(1-\varepsilon)$, 则有$1-\varepsilon=\tanh x$, 即
+\begin{eqnarray}
+\frac{e^x-e^{-x}}{e^x+e^{-x}} = 1-\varepsilon & \Longrightarrow & e^y-e^{-x} = (1-\varepsilon)(e^x+e^{-x})\nonumber\\
+ & \Longrightarrow & 2e^{-x} = \varepsilon e^x + \varepsilon e^{-x}\nonumber\\
+ & \Longrightarrow & 2 = \varepsilon e^{2x} + \varepsilon
+\nonumber
+\end{eqnarray}
+
+整理得
+\[
+x = \frac{1}{2}\ln\frac{2-\varepsilon}{\varepsilon} = O(\ln\varepsilon^{-1})
+\]
+
+故有
+\[
+\tanh^{-1}(1-\varepsilon) = O(\ln\varepsilon^{-1})
+\]
+
+\item 设$x = \cos^{-1}(1-\varepsilon)$, 则有$1-\varepsilon = \cos x$, 即
+\[
+1-\varepsilon = 1-\frac{x^2}{2} +o(x^3) \Longrightarrow \varepsilon = \frac{x^2}{2} +o(x^3)
+\]
+因此有
+\[
+\cos^{-1}(1-\varepsilon) = x = O(\varepsilon^{1/2})
+\]
+\end{enumerate}
+\end{solution} 

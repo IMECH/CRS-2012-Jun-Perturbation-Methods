@@ -1,0 +1,17 @@
+\begin{problem}[习题2.7]
+求下述积分的渐近表示:
+\[
+I(x) = \int_0^\infty \mathrm{e}^{\mathrm{i} x(t^3/3+t)} dt,\:\:\: x\rightarrow \infty
+\]
+\end{problem}
+
+\begin{solution}
+由驻相法: $f(t)=1$, $f'(t)=0$, $h(t)=(t^{3}/3+t)$, $h'(t)=(t^{2}+1)\neq0$,
+$h''(t)=2t$存在. $(f/h')'=[1/(t^{2}+1)]'$绝对可积. $f(0)\cdot f(\infty)=1\neq0$.
+因此有
+\begin{align*}
+I(x) & =\int_{0}^{\infty}\mathrm{e}^{\mathrm{i}x(t^{3}/3+t)}dt=f(\infty)\frac{\mathrm{e}^{\mathrm{i}xh(\infty)}}{\mathrm{i}xh'(\infty)}-f(0)\frac{\mathrm{e}^{\mathrm{i}xh(0)}}{\mathrm{i}xh'(0)}+O\Big(\frac{1}{x}\Big)\\
+ & =\frac{\mathrm{e}^{\mathrm{i}x\infty}}{\mathrm{i}x\infty}+\frac{\mathrm{i}}{x}+O(1/x)\sim\frac{\mathrm{i}}{x}
+\end{align*}
+因此当$x\rightarrow\infty$, $I(x)\sim\mathrm{i}/x$.
+\end{solution}

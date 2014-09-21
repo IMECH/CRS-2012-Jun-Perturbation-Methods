@@ -1,0 +1,53 @@
+\begin{problem}[习题7.19]
+考虑边值问题
+\[
+\varepsilon y'' + b(x)y'+C(x)y = 0,~~ y(0)=A, ~~ y(1)=B
+\]
+试证: $b(x)>0$时边界层位置在$x=0$处, $b(x)<0$时, 边界层位置在$x=1$处.
+\end{problem}
+
+\begin{solution}
+首先求解边界层区域外部的解, 设外解为$y^{(o)} = y_0^{(o)} + O(\varepsilon)$. 其首项$y_0^{(o)}$是原方程的退化解, 即
+\[
+b(x) y_0'^{(o)} + C(x)y_0^{(o)} = 0
+\Longrightarrow
+y_0^{(o)} = \exp\Big(
+-\int\frac{C(x)}{b(x)}dx
+\Big)
+\]
+再求边界层内部的解. 引入放大变量
+\[
+\xi = (x-x_0)/\varepsilon^\lambda, ~~\textrm{其中}~ x_0 = 0~\textrm{或}~1
+\]
+代入原方程得
+\[
+\varepsilon^{1-2\lambda}\frac{d^2y}{d\xi^2} + b(\xi,\varepsilon)\varepsilon^{-\lambda}\frac{dy}{d\xi}+C(\xi,\varepsilon)y = 0
+\]
+对$b(\xi,\varepsilon)$和$C(\xi,\varepsilon)$展开并代入上式得
+\begin{equation}\label{eq71901}
+\varepsilon^{1-2\lambda}\frac{d^2y}{d\xi^2} + \big(b_0+O(\varepsilon^\lambda)\big)\varepsilon^{-\lambda}\frac{dy}{d\xi}+\big(C_0+O(\varepsilon^\lambda)\big)y = 0
+\end{equation}
+下面对$\lambda$的三种情况分别作讨论, 如下:
+\begin{itemize}
+\item 当$\lambda > 1$时, 式(\ref{eq71901})第一项在$\varepsilon\rightarrow 0$时远大于其它项, 所以首项内解$y_0^{(i)}$满足
+\[
+\frac{d^2y_0^{(i)}}{d\xi^2}  = 0 \Longrightarrow y_0^{(i)} = C_1\xi + C_2
+\]
+显然$\lim_{x\rightarrow x_0}y_0^{(o)}$有限, 而$\lim_{\xi\rightarrow\infty} y_0^{(i)}=\infty$, 无法匹配.
+\item 当$0 < \lambda < 1$时,  式(\ref{eq71901})第二项在$\varepsilon\rightarrow 0$时远大于其它项, 所以首项内解$y_0^{(i)}$满足
+    \[
+   \frac{dy_0^{(i)}}{d\xi} = 0  \Longrightarrow y_0^{(i)} = C(\textrm{常数})
+    \]
+    显然也无法与外解匹配.
+\item 当$\lambda = 1$时, 式(\ref{eq71901})第三项可忽略, 所以首项内解$y_0^{(i)}$满足
+\[
+\frac{d^2y_0^{(i)}}{d\xi^2} + b_0\frac{dy_0^{(i)}}{d\xi} = 0 \Longrightarrow  y_0^{(i)} = C_1 e^{-b_0\xi} + C_2
+\]
+下面分别讨论$b_0>0$和$b_0<0$的两种情况:
+\begin{enumerate}
+\item 当$b_0>0$时, 若边界层位置为$x=1$, 则有$(x-x_0)<0$. 故在边界层外缘$\xi = (x-x_0)/\varepsilon^\lambda \rightarrow -\infty$, 因而 $y_0^{(i)} = C_1 e^{-b_0\xi} + C_2 \rightarrow C_1 e^{+\infty}+ C_2$ 无法与外解匹配. 此时$x=1$不是边界层位置. \textbf{因此, 当$b_0>0$时, 边界层位置为$x=0$.}
+\item 当$b_0<0$时, 若边界层位置为$x=0$, 则有$(x-x_0)>0$. 故在边界层外缘$\xi = (x-x_0)/\varepsilon^\lambda \rightarrow +\infty$, 因而 $y_0^{(i)} = C_1 e^{-b_0\xi} + C_2 \rightarrow C_1 e^{+\infty}+ C_2$ 无法与外解匹配. 此时$x=0$不是边界层位置. \textbf{因此, 当$b_0<0$时, 边界层位置为$x=1$.}
+\end{enumerate}
+\end{itemize}
+%综上所述, 当$b_0>0$时, 边界层位置为$x=0$; 当$b_0<0$时, 边界层位置为$x=1$.
+\end{solution} 

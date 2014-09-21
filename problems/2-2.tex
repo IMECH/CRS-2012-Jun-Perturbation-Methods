@@ -1,0 +1,33 @@
+\begin{problem}[习题2.2]
+试求
+\[
+\int_x^\infty \frac{\mathrm{e}^{-t}}{t^n} dt
+\]
+的渐近展开式, 并证明余项确比保留的项要小.
+\end{problem}
+
+\begin{solution}
+令
+\[
+F(x,n)=\int_{x}^{\infty}\frac{\mathrm{e}^{-t}}{t^{n}}dt
+\]
+由分步积分得递推公式
+\[
+F(x,n)=-t^{-n}\mathrm{e}^{-t}\Big|_{x}^{\infty}-n\int_{x}^{\infty}t^{-(n+1)}\mathrm{e}^{-t}dt=x^{-n}\mathrm{e}^{-x}-nF(x,n+1)
+\]
+由$\Gamma$函数的性质$\Gamma(-n+1)=-n\Gamma(-(n+1)+1)=n(n+1)\Gamma(-(n+2)+1)=\cdots$及以上递推关系得
+\[
+F(x,n)=\mathrm{e}^{-x}\sum_{i=0}^{N-1}\frac{\Gamma(-n+1)}{\Gamma(-(n+i)+1)}x^{-(n+i)}+\frac{\Gamma(-n+1)}{\Gamma(-(n+N)+1)}F(x,n+N)
+\]
+最后一项余项$R_{N}$, 对所有$N$
+\begin{align*}
+|R_{N}| & \leq\bigg|\frac{\Gamma(-n+1)}{\Gamma(-(n+N)+1)}\bigg||F(x,n+N)|\\
+ & \leq\bigg|\frac{\Gamma(-n+1)}{\Gamma(-(n+N)+1)}\bigg|
+ \bigg|x^{-n-N}\int_{x}^{\infty}\mathrm{e}^{-t}dt\bigg|=O(\mathrm{e}^{-x}x^{-n-N})
+\end{align*}
+所以渐近展开
+\[
+F(x,n)\sim\mathrm{e}^{-x}\sum_{i=0}^{\infty}\frac{\Gamma(-n+1)}{\Gamma(-(n+i)+1)}x^{-(n+i)}
+\]
+可见$F(x,n)$是$O\big(\mathrm{e}^{-x}x^{-(n+i)}\big)$量阶, 显然余项比保留项要小.
+\end{solution} 

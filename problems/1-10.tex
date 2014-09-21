@@ -1,0 +1,33 @@
+\begin{problem}[习题1.10]
+已知零阶Bessel函数的渐近展开为
+\[
+J_0(x) \sim \sqrt{\frac{2}{\pi x}}
+\Big[
+u(x)\cos\big(x-\frac{1}{4}\pi\big) + v(x)\sin\big(x-\frac{1}{4}\pi\big)
+\Big]
+\]
+其中
+\[
+u(x) = 1 -\frac{(3!!)^2}{2!(8x)^2} + \frac{(7!!)^2}{4!(8x)^4} -\frac{(11!!)^2}{6!(8x)^6} + \cdots
+\]
+\[
+v(x) = \frac{1}{8x} -\frac{(5!!)^2}{3!(8x)^3} + \frac{(9!!)^2}{5!(8x)^5} -\frac{(13!!)^2}{7!(8x)^7} + \cdots
+\]
+求它的近似根.
+\end{problem}
+
+\begin{solution}
+设解为$x_{n}=n\pi+\frac{3}{4}\pi+\varepsilon$, 则有
+\begin{align*}
+u(x_{n})\cos(n\pi+\frac{1}{2}\pi+\varepsilon)+v(x_{n})\sin(n\pi+\frac{1}{2}\pi+\varepsilon) & =0\\
+\Longrightarrow\hphantom{+\frac{1}{2}\pi+\frac{1}{2}\pi}-u(x_{n})\cos(n\pi+\varepsilon)+v(x_{n})\sin(n\pi+\varepsilon) & =0
+\end{align*}
+由上式可得
+\[
+\tan(n\pi+\varepsilon)=\frac{u(x_{n})}{v(x_{n})}=\tan\varepsilon=\frac{1}{8x_{n}}
+\]
+因此有$\varepsilon=\tan\varepsilon=\frac{1}{8n\pi+6\pi}$. 因此Bessel函数的渐近展开的根的近似值为
+\[
+x_{n}=n\pi+\frac{3}{4}\pi+\frac{1}{8n\pi+6\pi}
+\]
+\end{solution}

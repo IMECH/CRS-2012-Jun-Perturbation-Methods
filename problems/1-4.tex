@@ -1,0 +1,21 @@
+\begin{problem}[习题1.4]
+试用量阶符号的定义, 证明量阶运算的性质:
+\begin{enumerate}
+\item $O(\psi) + O(\psi) = O(\psi)$
+\item $O(\psi) \cdot o(\varphi) = o(\psi\varphi)$
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}
+\item 根据量阶符号的定义, $\exists A,B$常数使得
+\[
+|O(\psi)+O(\psi)|\leq|O(\psi)|+|O(\psi)|\leq A|\psi|+B|\psi|=(A+B)|\psi|
+\]
+其中$A+B$为常数. 因此有$O(\psi)+O(\psi)=O(\psi)$.
+\item 根据量阶符号的定义, $\exists A$常数及任意$\varepsilon>0$有
+\[
+|O(\psi)\cdot o(\varphi)|=|O(\psi)|\cdot|o(\varphi)|\leq A|\psi|\cdot\varepsilon|\varphi|=\varepsilon A|\psi\varphi|
+\]
+其中$\varepsilon A$为任意小的正数. 因此有$O(\psi)\cdot o(\varphi)=o(\psi\varphi)$.\end{enumerate}
+\end{solution} 

@@ -1,0 +1,20 @@
+\begin{problem}[习题1.3]
+对于小$\varepsilon$, 请按量阶次序排列:
+\[
+e^{-1/\varepsilon}, ~ \varepsilon^2, ~ \varepsilon^2\ln\varepsilon^{-1}, ~ \varepsilon^{3/2}, ~ \varepsilon, ~ \varepsilon^{1/2},
+~ \varepsilon^{1/2}\ln\varepsilon^{-1}, ~ 1, ~ \ln\ln\varepsilon^{-1}, ~\ln\varepsilon^{-1}
+\]
+\end{problem}
+
+\begin{solution}
+\textbf{解:} 由于
+\[
+e^{-1/\varepsilon} < O(x^m) < O(\varepsilon^{-n})< \ln\varepsilon^{-1}
+\]
+其中$m$任意大, $n$任意小. 因此量阶次序排列如下:
+\begin{eqnarray}
+O(\ln\varepsilon^{-1}) > O(\ln\ln\varepsilon^{-1})\!\!&>&\!\!O(1) > O(\varepsilon^{1/2}\ln\varepsilon^{-1}) > O(\varepsilon^{1/2})\nonumber\\
+ \!\!&>&\!\! O(\varepsilon) > O(\varepsilon^{3/2}) > O(\varepsilon^2\ln\varepsilon^{-1}) > O(\varepsilon^2) > O(e^{-1/\varepsilon})\nonumber
+\end{eqnarray}
+
+\end{solution} 

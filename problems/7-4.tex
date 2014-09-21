@@ -1,0 +1,42 @@
+\begin{problem}[习题7.4]
+对于方程
+\[
+\ddot{u} + \omega_0^2 u + \varepsilon \dot{u}^3 = 0
+\]
+试求$u$的一阶的一致有效展开式.
+\end{problem}
+
+\begin{solution}
+\textbf{解:} 当$\varepsilon = 0$时, 原方程的退化方程的通解为
+\begin{equation}\label{s20}
+u = a\cos(\omega_0 t + \theta)
+\end{equation}
+其中$a$和$\theta$是常数, 分别是振幅和初始位相.  由\textbf{平均法}, 当$0<\varepsilon\ll 1$时, 可认为解的形式仍为式(\ref{s20}). 但$a$和$\theta$不是常数, 而是$t$的缓变函数. 原式中
+\[
+\ddot{u} + \omega_0^2 u = - \varepsilon \dot{u}^3 = \varepsilon f(u, du/dt)
+\]
+故$f(u,\dot{u})$的形式为$-\dot{u}^3$, 故有
+\[
+f(a\cos\varphi, -a\omega_0\sin\varphi) = -(-a\omega_0\sin\varphi)^3
+\]
+因此由平均法有
+\begin{eqnarray}
+\frac{da}{dt}
+&=& \frac{\varepsilon}{~~\omega_0}\frac{1}{2\pi}\int_0^{2\pi}
+\sin\varphi (-a\omega_0\sin\varphi)^3 d\varphi = -\frac{3}{8}a^3\omega_0^2\varepsilon \nonumber\\
+\noalign{\vskip5pt}
+\frac{d\theta}{dt}
+&=& \frac{\varepsilon}{a\omega_0}\frac{1}{2\pi}\int_0^{2\pi}
+\cos\varphi (-a\omega_0\sin\varphi)^3 d\varphi = 0 \nonumber
+\end{eqnarray}
+因此可解出$a$和$\theta$:
+\[
+a = \Big(\frac{3}{4}\varepsilon\omega_0^2 t + \frac{1}{a_0^2}\Big)^{-1/2}, ~~ \theta = \theta_0
+\]
+将$a$和$\theta$代入式(\ref{s20}), 可得方程的一致有效展开式为
+\[
+u = \Big(\frac{3}{4}\varepsilon\omega_0^2 t + \frac{1}{a_0^2}\Big)^{-1/2}\cos(\omega_0 t + \theta_0)
+\]
+其中$a_0$和$\theta_0$是常数.
+
+\end{solution} 

@@ -1,0 +1,28 @@
+\begin{problem}[习题3.4]
+已知其物理量$\varphi(x,t)$由不同成分的谐波叠加而成, 若已知$\varphi(x,0)=\mathrm{e}^{-ax^2}$, $a>0$, $\omega=k^2$, 试求$\varphi(x,t)$的表达式及其渐近行为.
+\end{problem}
+
+\begin{solution}
+设解的形式
+\[
+\varphi(x,t)=\int_{0}^{\infty}F(k)e^{\mathrm{i}[kx-\omega(k)t]}dk=\int_{0}^{\infty}F(k)\mathrm{e}^{\mathrm{i}\psi(k)t}
+\]
+其中$\psi(k)=kx/t-\omega(k)$,$F(k)$由初始条件确定
+\[
+F(k)=\frac{1}{2\pi}\int_{0}^{\infty}\mathrm{e}^{-\mathrm{i}kx}\varphi(x,0)dx=\frac{1}{2\pi}\int_{0}^{\infty}\mathrm{e}^{-\mathrm{i}kx-ax^{2}}dx
+\]
+令$y=x+\mathrm{i}k/2a$, 则上式可化为
+\begin{align*}
+F(k) & =\frac{1}{2\pi}\int_{0}^{\infty}\mathrm{e}^{-\mathrm{i}k(y-\mathrm{i}k/2a)-a(y-\mathrm{i}k/2a)^{2}}dx=\frac{1}{2\pi}\int_{\mathrm{i}k/2a}^{\infty}\mathrm{e}^{-k^{2}/4a-ay^{2}}dy\\
+ & =\frac{1}{2\pi}\mathrm{e}^{-k^{2}/4a}\int_{\mathrm{i}k/2a}^{\infty}\mathrm{e}^{-ay^{2}}dy=\frac{1}{4\pi}\mathrm{e}^{-k^{2}/4a}\Gamma\Big(\frac{1}{2},-\frac{k^{2}}{4a^{2}}\Big)
+\end{align*}
+用驻相法来计算
+\[
+\psi'(k)=x/t-\omega'(k)=0
+\]
+在驻相点处设$k=k_{g}$, 那么
+\begin{align*}
+\varphi(x,t) & \sim F(k_{g})\exp\bigg[\mathrm{i}\bigg\{ k_{g}x-\omega(k_{g})t-\frac{\pi}{4}\mathrm{sgn}\omega''(k_{g})\bigg\}\bigg]\sqrt{\frac{2\pi}{t|\omega''(k_{g})|}}\\
+ & \sim\frac{1}{4\pi}\mathrm{e}^{-k_{g}^{2}/4a}\Gamma\Big(\frac{1}{2},-\frac{k_{g}^{2}}{4a^{2}}\Big)\exp\bigg[\mathrm{i}\bigg\{ k_{g}x-\omega(k_{g})t-\frac{\pi}{4}\mathrm{sgn}\omega''(k_{g})\bigg\}\bigg]\sqrt{\frac{2\pi}{t|\omega''(k_{g})|}}
+\end{align*}
+\end{solution}

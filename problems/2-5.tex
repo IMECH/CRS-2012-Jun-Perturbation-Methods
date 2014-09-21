@@ -1,0 +1,27 @@
+\begin{problem}[习题2.5]
+试求
+\[
+I(x)=\int_1^2\exp\Big[
+-x(t+1/t)\Big]
+\]
+之渐近表示.
+\end{problem}
+
+\begin{solution}
+令$h(t)=-(t+1/t)$, 则有
+\[
+h'(t)=\frac{1}{t^{2}}-1,\:\:\: t\in[1,2]
+\]
+当$t=1$时$h'(t)=0$, $h(t)=-2$取得最大值. 因此当$x\rightarrow\infty$时, 积分的主要贡献主要来自1附近区域.
+将$h(t)$在$t=1$展开
+\[
+h(t)=h(1)+h'(1)(t-1)+\frac{1}{2}h''(1)(t-1)^{2}+\cdots=-2+0-(t-1)^{2}+\cdots
+\]
+因此
+\begin{align*}
+I(x)\sim & \int_{1}^{\infty}\mathrm{e}^{-2x-x(t-1)^{2}}dt=\mathrm{e}^{-2x}\int_{0}^{\infty}\mathrm{e}^{-xt^{2}}dt\\
+ & =\sqrt{\frac{\pi}{x}}\mathrm{e}^{-2x}\int_{0}^{\infty}\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-(\sqrt{x/2}t)^{2}/2}d\sqrt{x/2}t\\
+ & =\sqrt{\frac{\pi}{x}}\mathrm{e}^{-2x}\int_{0}^{\infty}\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-t^{2}/2}dt\\
+ & =\frac{1}{2}\sqrt{\frac{\pi}{x}}\mathrm{e}^{-2x}
+\end{align*}
+\end{solution} 

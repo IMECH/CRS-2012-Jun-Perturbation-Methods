@@ -1,0 +1,29 @@
+\begin{problem}[习题1.9]
+求下述超越方程根的近似值:
+\[
+x = \tan x
+\]
+\end{problem}
+
+\begin{solution}
+\textbf{解:} 设$x=\tan x$的解为$x_n$, $x_n\in (n\pi-\frac{\pi}{2}, n\pi +\frac{\pi}{2}), ~n=0,\pm 1,\pm 2,\cdots$. 显然上式可写为$x_n = \tan(x_n-n\pi)$. 当$x_n\rightarrow 0$时, $x_n-n\pi\rightarrow \frac{\pi}{2}$, 令$x_n=n\pi+\frac{\pi}{2} + z$, 以及$w=\frac{1}{n\pi+\pi/2}$, 于是
+\begin{eqnarray}
+w &=& f(z) = \frac{1}{x_n-z} = \frac{1}{\tan x_n - z} \nonumber\\
+&=& \frac{1}{\tan (n\pi+\pi/2+z) - z} = \frac{1}{-\cot z - z}\nonumber\\
+&=& -\frac{\sin z}{\cos z + z\sin z}\nonumber
+\end{eqnarray}
+由定理一推论
+\begin{eqnarray}
+z&=&\varphi(w) = z_0 + \sum_{n=1}^{\infty}\frac{1}{n!}\frac{d^{n-1}}{d\zeta^{n-1}}
+\Big(\frac{\zeta-z_0}{f(\zeta)-w_0}\Big)^n\Big|_{\zeta=z_0}(w-w_0)^n\nonumber\\
+&=& \sum_{n=1}^{\infty}\frac{1}{n!}\frac{d^{n-1}}{d\zeta^{n-1}}
+\frac{\zeta^n}{f(\zeta)^n}\Big|_{\zeta=z_0}w^n\nonumber\\
+&=&\sum_{n=1}^{\infty}\frac{1}{n!}\frac{d^{n-1}}{d\zeta^{n-1}}
+\frac{(-1)^n\zeta^n(\cos\zeta+\zeta\sin\zeta)^n)}{\sin^n\zeta}\Big|_{\zeta=0}w^n\nonumber\\
+&=& - w + o(w)\nonumber
+\end{eqnarray}
+因此有
+\[
+x_n=n\pi+\frac{\pi}{2} + z = n\pi+\frac{\pi}{2}- w + o(w) = n\pi+\frac{\pi}{2} - \frac{1}{n\pi+\pi/2} + \cdots
+\]
+\end{solution} 

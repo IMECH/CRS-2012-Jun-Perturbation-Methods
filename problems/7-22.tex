@@ -1,0 +1,44 @@
+\begin{problem}[习题7.22]
+试求边值问题
+\[
+\varepsilon y'' + (2x^2+x+1)y' = 4x+ 1, ~~
+y(0)= \alpha, ~~ y(1) = \beta
+\]
+一阶的一致有效展开式.
+\end{problem}
+
+\begin{solution}
+由习题(7.19)及$2x^{2}+x+1>0$可知, 该问题的边界层在$x=0$处. 先求外解, 由原方程可得
+\[
+(2x^{2}+x+1) {y'}_{0}^{(o)}=4x+1,~~y_{0}^{(o)}(1)=\beta
+\]
+由上式及边界条件可求得外解为
+\[
+y_{0}^{(o)}=\ln(2x^{2}+x+1)+\beta-2\ln2
+\]
+设内变量为$\xi=x/\varepsilon^{\lambda}$, 代入原方程式
+\[
+\varepsilon^{1-2\lambda}\frac{d^{2}y^{(i)}}{d\xi^{2}}+(2\varepsilon^{\lambda}\xi^{2}+\xi+\varepsilon^{-\lambda})\frac{dy^{(i)}}{d\xi}=4\varepsilon^{\lambda}\xi+1
+\]
+即
+\[
+\frac{d^{2}y^{(i)}}{d\xi^{2}}+(2\varepsilon^{3\lambda-1}\xi^{2}+\varepsilon^{2\lambda-1}\xi+\varepsilon^{\lambda-1})\frac{dy^{(i)}}{d\xi}-(4\varepsilon^{3\lambda-1}\xi+\varepsilon^{2\lambda-1})=0
+\]
+由于外解忽略了第一项, 所以在边界层中应该包含第一项, 因此$\lambda\geq1$, 当$\lambda>1$时上式首项为主要项,其解不能与外解匹配.
+因此$\lambda=1$, 此时上式化为
+\[
+\frac{d^{2}y^{(i)}}{d\xi^{2}}+\frac{dy^{(i)}}{d\xi}=0\Rightarrow y^{(i)}=C_{0}e^{-\xi}+C_{1}
+\]
+由边界条件$y^{(i)}(0)=\alpha$可得$C_{0}+C_{1}=\alpha$. 因此有$y^{(i)}=C_{0}e^{-\xi}+(\alpha-C_{0})$.
+
+\vspace{1em}
+
+\noindent 对内外解应用Prandtl 匹配原理($\lim_{x\rightarrow0}y^{(o)}=\lim_{\xi\rightarrow\infty}y^{(i)}$)得
+\[
+\beta-2\ln2=\alpha-C_{0}\Rightarrow C_{0}=\alpha-\beta+2\ln2
+\]
+综上所述, 最终解为
+\[
+y=y^{(o)}+y^{(i)}-[y^{(o)}]^{(i)}=\ln(2x^{2}+x+1)+(\beta-2\ln2)+(\alpha-\beta+2\ln2)e^{-x/\varepsilon}
+\]
+\end{solution} 

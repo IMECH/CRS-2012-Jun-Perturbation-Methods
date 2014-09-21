@@ -1,0 +1,82 @@
+\begin{problem}[习题7.2]
+单摆的运动方程及初始条件为
+\[
+\ddot{\theta} + (g/l)\sin\theta = 0, ~~ \theta(0)=\varepsilon, ~~ \ddot{\theta}(0) = 0
+\]
+试对小而有限的 $\theta$ 值, 求两项一致有效展开式.
+\end{problem}
+
+\begin{solution}
+\textbf{解}: 将 $\sin\theta$ 展开: $\sin\theta=\theta -\theta^3/6+O(\theta^5)+\cdots$, 并令 $g/l=w_0^2$,
+ 则原方程式化为:
+\begin{displaymath}
+\left\{ \begin{array}{l}
+\displaystyle\frac{d^2\theta}{w_0^2 dt^2} + (\theta-\theta^3/6) = 0\\
+\displaystyle\theta(0)/\varepsilon = 1, ~~  \ddot{\theta}(0) = 0
+\end{array}\right.
+\end{displaymath}
+令 $y=\theta/\varepsilon$, $w_0 t = t'$, 则上式化为:
+\begin{displaymath}
+\left\{ \begin{array}{l}
+\displaystyle \varepsilon\frac{d^2y}{dt'^2} + \Big(\varepsilon y- \frac{\varepsilon^3}{6} y^3\Big) = 0\\
+\displaystyle y(0) = 1, ~~  \frac{dy}{dt'}\Big|_{t'=0} = 0
+\end{array}\right. ~~ \underrightarrow{-\varepsilon^2/6=\varepsilon'} ~~
+\left\{ \begin{array}{l}
+\displaystyle \frac{d^2y}{dt'^2} +  y + \varepsilon' y^3 = 0\\
+\displaystyle y(0) = 1, ~~  \frac{dy}{dt'}\Big|_{t'=0} = 0
+\end{array}\right.
+\end{displaymath}
+则方程转化为Duffing方程, 将频率作展开 $\omega(\varepsilon')= \omega_0 + \varepsilon'\omega_1 + \varepsilon'^2\omega_2 + \cdots $, 相当于对时间作了线性变换:
+$\tau = (\omega_0 + \varepsilon'\omega_1 + \varepsilon'^2\omega_2 + \cdots) t'$.  其中$\omega_0 = 1$是退化问题的频率, 于是方程及初始条件变为
+\begin{displaymath}
+\left\{ \begin{array}{l}
+\displaystyle (1 + \varepsilon'\omega_1 + \varepsilon'^2\omega_2 + \cdots)^2 \frac{d^2y}{d\tau^2} +  y + \varepsilon' y^3 = 0\\
+\displaystyle y(0) = 1, ~~  \frac{dy}{d\tau}\Big|_{\tau=0} = 0
+\end{array}\right.
+\end{displaymath}
+将函数 $y$ 作渐近展开 $y=\sum_{n=0}\varepsilon'^n y_n$代入上式, 并按$\varepsilon'$的幂次排列, 可得到递推方程及各阶初始条件
+\[
+\begin{array}{llll}
+\displaystyle L(y_0) &\displaystyle  \equiv \frac{d^2y_0}{d\tau^2} + y_0 = 0&, \displaystyle ~ y_0(0) = 1&, \displaystyle ~ \frac{dy_0}{d\tau}\Big|_{\tau=0} = 0\\
+\noalign{\vskip5pt}
+\displaystyle L(y_1) &\displaystyle = -y_0^3-2\omega_1\frac{d^2y_0}{d\tau}&, \displaystyle ~ y_1(0) = 0&, \displaystyle ~ \frac{dy_1}{d\tau}\Big|_{\tau=0} = 0\\
+\noalign{\vskip5pt}
+\displaystyle L(y_2) &\displaystyle =  -3y_0^2y_1 -2\omega_1\frac{d^2y_1}{d\tau^2}-(\omega_1^2+2\omega_2)\frac{d^2y_0}{d\tau^2}&,\displaystyle  ~ y_2(0) = 0&, \displaystyle ~ \frac{dy_2}{d\tau}\Big|_{\tau=0} = 0
+\end{array}
+\]
+零阶量的解为
+\begin{equation}\label{s0}
+y_0 = \cos\tau
+\end{equation}
+将式(\ref{s0})代入式一阶式得
+\[
+L(y_1) = (2\omega_1 - \frac{3}{4})\cos\tau - \frac{1}{4}\cos 3\tau
+\]
+对应于上式右端第一项的特解是长期项, 必须消去. 故有$\omega_1=3/8$. 因此, 一阶量的解为
+\begin{equation}\label{s1}
+y_1 = \frac{1}{32}(\cos 3\tau - \cos\tau)
+\end{equation}
+将式(\ref{s0})和式(\ref{s1})代入式二阶式得
+\[
+y_2 = \Big(\frac{21}{128}+2\omega_2\Big)\cos\tau + \frac{3}{16}\cos 3\tau - \frac{3}{128} \cos 5\tau
+\]
+要使$y_2$不含长期项, 必须令上式右端第一项系数为零, 于是有$\omega_2 = -21/256$. 因此, 二阶量的解为
+\begin{equation}\label{s2}
+y_2 =\frac{1}{1024}(\cos 5\tau - 24\cos 3\tau + 23\cos\tau)
+\end{equation}
+综上所述, 有
+\[
+y = \cos\tau + \frac{\varepsilon'}{32}(\cos 3\tau -\cos\tau) + \frac{\varepsilon'^2}{1024}(\cos 5\tau - 24\cos 3\tau + 23\cos \tau) + O(\varepsilon'^3)
+\]
+代入$y = \theta/\varepsilon$及 $\varepsilon'=-\varepsilon^2/6$ 得方程的渐近解为
+\[
+\theta = \varepsilon\cos\tau - \frac{\varepsilon^3}{192}(\cos 3\tau -\cos\tau) + \frac{\varepsilon^5}{36864}(\cos 5\tau - 24\cos 3\tau + 23\cos \tau) + O(\varepsilon^7)
+\]
+其中(注意到:$\tau=\omega t'$, $w_0 t = t'$):
+\begin{eqnarray}
+\displaystyle \tau &=& \Big(\omega_0 + \varepsilon'\omega_1 + \varepsilon'^2\omega_2 + O(\varepsilon'^3)\Big) t'\nonumber\\
+\displaystyle &=& \Big(1 + \frac{3}{8} \varepsilon' - \frac{21}{256} \varepsilon'^2 + O(\varepsilon'^3)\Big) w_0 t\nonumber\\
+\displaystyle &=& \Big(1 - \frac{1}{16} \varepsilon^2 - \frac{7}{3072} \varepsilon^4 + O(\varepsilon^6)\Big)\sqrt{\frac{g}{l}} t\nonumber
+\end{eqnarray}
+
+\end{solution} 
